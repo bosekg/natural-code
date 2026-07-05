@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Natural Code — Brand Ops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black: #0A0A0B;
+    --panel: #131315;
+    --panel-2: #1A1A1D;
+    --line: #26262A;
+    --grey: #8C8C92;
+    --grey-light: #C7C7CC;
+    --white: #F3F1EE;
+    --bordeaux-dark: #43101B;
+    --bordeaux: #8C1F2F;
+    --bordeaux-light: #C23A4C;
+    --blue-deep: #10202E;
+    --blue-mid: #1E3B52;
+    --blue-mist: #4C7290;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --max: 1120px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:var(--font-body);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--bordeaux); color:var(--white);}
+
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+  section{padding:96px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--font-body); font-weight:200; letter-spacing:.14em;
+    font-size:12px; text-transform:lowercase; color:var(--bordeaux-light);
+    margin-bottom:22px;
+  }
+  .eyebrow .tick{color:var(--grey); font-weight:200;}
+
+  h1,h2,h3{font-weight:600; letter-spacing:-0.01em;}
+  .title-lg{
+    font-family:var(--font-body); font-weight:700; font-size:clamp(26px,3.4vw,40px);
+    text-transform:uppercase; letter-spacing:0.01em; margin-bottom:20px; max-width:16ch;
+  }
+  .lede{color:var(--grey-light); font-size:16px; max-width:640px; margin-bottom:8px;}
+
+  .kicker-note{
+    font-family:var(--font-body); font-weight:200; font-size:12px; color:var(--grey);
+    letter-spacing:.04em; margin-top:6px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:120px 0 96px; border-bottom:1px solid var(--line);
+    position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; top:-40%; right:-10%; width:60%; height:180%;
+    background:radial-gradient(circle, rgba(140,31,47,0.16), transparent 65%);
+    pointer-events:none;
+  }
+  .hero-tag{
+    font-weight:200; letter-spacing:.16em; font-size:12px; text-transform:uppercase;
+    color:var(--grey); margin-bottom:28px; display:block;
+  }
+  .hero-tag b{color:var(--bordeaux-light); font-weight:500;}
+  .hero h1{
+    font-family:var(--font-body); font-weight:800; letter-spacing:-0.02em;
+    font-size:clamp(32px,5.2vw,58px); line-height:1.14; max-width:15ch;
+    margin-bottom:28px; color:var(--white);
+  }
+  .accent-word{
+    font-family:var(--font-display); font-style:italic; font-weight:500;
+    color:var(--bordeaux-light); letter-spacing:0;
+  }
+  .hero-sub{
+    max-width:540px; color:var(--grey-light); font-size:16px; line-height:1.7;
+    border-left:2px solid var(--bordeaux); padding-left:18px;
+  }
+  .hero-sub strong{color:var(--white); font-weight:600;}
+
+  /* ---------- ICP ---------- */
+  .icp-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:44px;}
+  .icp-profile p{color:var(--grey-light); margin-bottom:14px; font-size:15px;}
+  .icp-profile .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;}
+  .tag{
+    font-size:12px; font-weight:500; padding:6px 12px; border:1px solid var(--line);
+    border-radius:2px; color:var(--grey-light); letter-spacing:.02em;
+  }
+  .pain-list{display:flex; flex-direction:column; gap:0;}
+  .pain-item{
+    display:grid; grid-template-columns:28px 1fr; gap:14px; padding:16px 0;
+    border-top:1px solid var(--line);
+  }
+  .pain-item:first-child{border-top:none;}
+  .pain-mark{color:var(--bordeaux-light); font-family:var(--font-body); font-weight:200; font-size:13px; padding-top:2px;}
+  .pain-item h4{font-size:14px; font-weight:600; margin-bottom:4px; color:var(--white);}
+  .pain-item p{font-size:13.5px; color:var(--grey); line-height:1.55;}
+
+  /* ---------- POSITIONING ---------- */
+  .voice-bar{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+    margin:36px 0 14px; border:1px solid var(--line);
+  }
+  .voice-cell{background:var(--panel); padding:22px 16px; text-align:center;}
+  .voice-cell span{
+    display:block; font-family:var(--font-body); font-weight:700; font-size:13px;
+    text-transform:uppercase; letter-spacing:.06em; color:var(--white); margin-bottom:6px;
+  }
+  .voice-cell.accent{background:linear-gradient(160deg, var(--bordeaux-dark), var(--panel));}
+  .voice-cell.accent span{color:var(--bordeaux-light);}
+  .voice-cell span.accent-word{font-family:var(--font-display); text-transform:none; font-weight:500;}
+  .voice-cell small{color:var(--grey); font-size:11.5px; font-weight:300;}
+  .voice-note{color:var(--grey); font-size:13.5px; max-width:560px; margin-top:8px;}
+
+  .pillars-box{
+    margin-top:52px; border:1px dashed var(--line); border-radius:2px; padding:28px 30px;
+    background:var(--panel);
+  }
+  .pillars-box .status{
+    display:inline-block; font-size:11px; font-weight:600; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--blue-mist); border:1px solid var(--blue-mid);
+    padding:4px 10px; margin-bottom:16px;
+  }
+  .pillars-box h4{font-size:16px; margin-bottom:10px; color:var(--white); font-weight:600;}
+  .pillars-box ol{margin-left:18px; color:var(--grey-light); font-size:13.5px; line-height:1.8;}
+  .pillars-box ol li{margin-bottom:4px;}
+  .pillars-box ol li::marker{color:var(--bordeaux-light); font-weight:600;}
+
+  /* ---------- CONTENT ---------- */
+  table{width:100%; border-collapse:collapse; margin-top:20px;}
+  th,td{text-align:left; padding:13px 14px; border-bottom:1px solid var(--line); font-size:13.5px;}
+  th{
+    font-weight:600; text-transform:uppercase; letter-spacing:.05em; font-size:11px;
+    color:var(--grey); border-bottom:1px solid var(--line);
+  }
+  td{color:var(--grey-light);}
+  td.pillar-name{color:var(--white); font-weight:600;}
+  .table-wrap{overflow-x:auto; margin-bottom:52px;}
+  .sub-h{font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--bordeaux-light); margin:44px 0 4px;}
+
+  .phase-track{display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--line); margin-top:18px; border:1px solid var(--line);}
+  .phase{background:var(--blue-deep); padding:22px 18px;}
+  .phase .p-label{font-size:11px; color:var(--blue-mist); text-transform:uppercase; letter-spacing:.08em; font-weight:600; margin-bottom:8px;}
+  .phase h5{font-size:14px; color:var(--white); margin-bottom:8px; font-weight:600;}
+  .phase p{font-size:12.5px; color:var(--grey-light); line-height:1.6;}
+
+  /* ---------- VISUAL SYSTEM ---------- */
+  .swatch-row{display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-top:24px;}
+  .swatch{border-radius:2px; overflow:hidden; border:1px solid var(--line);}
+  .swatch-color{height:88px;}
+  .swatch-meta{padding:10px 10px; background:var(--panel);}
+  .swatch-meta .name{font-size:11px; font-weight:600; color:var(--white); text-transform:uppercase; letter-spacing:.03em;}
+  .swatch-meta .hex{font-size:10.5px; color:var(--grey); font-weight:300;}
+
+  .type-specimens{display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--line); margin-top:44px; border:1px solid var(--line);}
+  .spec{background:var(--panel); padding:32px 22px;}
+  .spec .glyph{font-size:52px; margin-bottom:14px; color:var(--white);}
+  .spec.display .glyph{font-family:var(--font-display); font-style:italic; font-weight:500;}
+  .spec.body .glyph{font-family:var(--font-body); font-weight:400;}
+  .spec.thin .glyph{font-family:var(--font-body); font-weight:200;}
+  .spec .role{font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--bordeaux-light); font-weight:600; margin-bottom:4px;}
+  .spec .use{font-size:12.5px; color:var(--grey);}
+
+  /* ---------- SOCIALS ---------- */
+  .social-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--line); margin-top:36px; border:1px solid var(--line);}
+  .social-card{background:var(--panel); padding:26px 22px;}
+  .social-card .n{font-family:var(--font-body); font-weight:200; font-size:12px; color:var(--bordeaux-light); margin-bottom:10px; display:block;}
+  .social-card h5{font-size:15px; color:var(--white); font-weight:600; margin-bottom:8px;}
+  .social-card p{font-size:13px; color:var(--grey-light); line-height:1.6;}
+
+  /* ---------- FUNNEL ---------- */
+  .funnel{display:flex; flex-direction:column; gap:0; margin-top:44px; max-width:680px;}
+  .f-step{display:grid; grid-template-columns:56px 1fr; gap:20px; position:relative; padding-bottom:36px;}
+  .f-step:last-child{padding-bottom:0;}
+  .f-num{
+    width:44px;height:44px; border:1px solid var(--bordeaux); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;
+    color:var(--bordeaux-light); background:var(--panel); position:relative; z-index:1;
+  }
+  .f-step:not(:last-child)::before{
+    content:""; position:absolute; left:22px; top:44px; bottom:0; width:1px; background:var(--line);
+  }
+  .f-body h5{font-size:15px; color:var(--white); font-weight:600; margin-bottom:6px;}
+  .f-body p{font-size:13.5px; color:var(--grey-light); line-height:1.6;}
+  .f-body .voice-flag{
+    display:inline-block; margin-top:10px; font-size:11px; font-weight:600; letter-spacing:.05em;
+    text-transform:uppercase; color:var(--blue-mist); border:1px solid var(--blue-mid); padding:3px 9px;
+  }
+  .f-branch{display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;}
+  .f-chip{font-size:12px; padding:6px 12px; border:1px solid var(--line); color:var(--grey-light);}
+  .f-chip.primary{border-color:var(--bordeaux); color:var(--bordeaux-light);}
+
+  /* ---------- NEXT STEPS ---------- */
+  .ops-list{margin-top:36px; display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .ops-row{display:grid; grid-template-columns:110px 1fr; gap:18px; background:var(--panel); padding:18px 20px; align-items:start;}
+  .ops-status{
+    font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    padding:5px 0; height:fit-content; text-align:center; border-radius:2px;
+  }
+  .ops-status.open{color:var(--bordeaux-light); border:1px solid var(--bordeaux);}
+  .ops-status.locked{color:#7FBF8F; border:1px solid #2E5C3A;}
+  .ops-status.draft{color:var(--blue-mist); border:1px solid var(--blue-mid);}
+  .ops-row h5{font-size:14px; color:var(--white); margin-bottom:4px; font-weight:600;}
+  .ops-row p{font-size:13px; color:var(--grey);}
+
+  footer{padding:48px 0; text-align:center;}
+  footer p{font-size:11px; color:var(--grey); letter-spacing:.05em; font-weight:200; text-transform:uppercase;}
+
+  [data-reveal]{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  [data-reveal].in{opacity:1; transform:translateY(0);}
+
+  @media (max-width:860px){
+    .icp-grid, .type-specimens, .social-grid, .phase-track{grid-template-columns:1fr;}
+    .swatch-row{grid-template-columns:repeat(3,1fr);}
+    .voice-bar{grid-template-columns:repeat(2,1fr);}
+    .ops-row{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    [data-reveal]{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="hero-tag"><b>THE NATURAL CODE</b> — INTERNAL BRAND OPS · US / WESTERN EU EXPANSION</span>
+    <h1>Look at yourself. Then build the version <span class="accent-word">worth looking at</span>.</h1>
+    <div class="hero-sub">
+      Private working document — <strong>not a public asset.</strong> This is the shared reference Gabriel and David use to align the brand before it moves from the Croatian market into the US and Western EU. Positioning, content system, visual spec, and funnel — all in one place.
+    </div>
+  </div>
+</div>
+
+<section data-reveal>
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">[</span> icp.profile <span class="tick">]</span></span>
+    <h2 class="title-lg">Who we're building for</h2>
+    <div class="icp-grid">
+      <div class="icp-profile">
+        <p>Men, <strong style="color:var(--white)">21–30</strong>, based in the US and Western Europe, English-speaking. They want their dream natural physique — but the physique is the <span class="accent-word">vehicle</span>, not the <span class="accent-word">destination</span>. What they're really after is confidence and standing across every domain of their life: career, social, dating.</p>
+        <p>Financially capable of investing in themselves, and — unlike a lot of the market — actually ready to act now, not "someday."</p>
+        <div class="tag-row">
+          <span class="tag">Natural only</span>
+          <span class="tag">21–30</span>
+          <span class="tag">US / W. Europe</span>
+          <span class="tag">Confidence-driven</span>
+          <span class="tag">Can invest</span>
+          <span class="tag">Ready to act</span>
+        </div>
+      </div>
+      <div class="pain-list">
+        <div class="pain-item"><span class="pain-mark">01</span><div><h4>Wasted effort</h4><p>Years on generic templates that ignore their structure and life — plateaued despite consistent effort.</p></div></div>
+        <div class="pain-item"><span class="pain-mark">02</span><div><h4>Information paralysis</h4><p>Overexposed to contradictory advice, no longer trusts their own judgment.</p></div></div>
+        <div class="pain-item"><span class="pain-mark">03</span><div><h4>Confidence, not just physique</h4><p>The goal is identity and self-worth — coaches who only talk sets/reps lose them.</p></div></div>
+        <div class="pain-item"><span class="pain-mark">04</span><div><h4>Burned before</h4><p>Bad coach, bad program, or a scam — high guard against sales pressure.</p></div></div>
+        <div class="pain-item"><span class="pain-mark">05</span><div><h4>Can't sustain it</h4><p>Motivation-driven starts that die in weeks because the plan ignores real life.</p></div></div>
+        <div class="pain-item"><span class="pain-mark">06</span><div><h4>Distrust of "natural"</h4><p>Burned by influencers quietly enhanced — wants proof and realistic expectations.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-reveal>
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">[</span> positioning.voice <span class="tick">]</span></span>
+    <h2 class="title-lg">Tone & message</h2>
+    <p class="lede">Hold up a <span class="accent-word">mirror</span>, then extend a <span class="accent-word">hand</span>. Every piece of content does one or both.</p>
+    <div class="voice-bar">
+      <div class="voice-cell"><span>Calm</span><small>Grounded delivery, no shouting for attention</small></div>
+      <div class="voice-cell"><span>Warm</span><small>Talking to one guy, not lecturing a crowd</small></div>
+      <div class="voice-cell"><span>Confident</span><small>Certainty earned through the method, not hype</small></div>
+      <div class="voice-cell accent"><span class="accent-word" style="font-size:15px;">Provocative</span><small>The edge — reserved for hooks & conversion</small></div>
+    </div>
+    <p class="voice-note">Edge is a tool, not the default setting. It shows up to make someone confront themselves — never to be mean, never bro-shouty, never "gatekept knowledge" arrogance.</p>
+
+    <div class="pillars-box">
+      <span class="status">pending david input</span>
+      <h4>Lifestyle / business pillars</h4>
+      <p style="color:var(--grey); font-size:13.5px; margin-bottom:14px;">Not mapped yet — placeholder only. Locking this once David answers, in order:</p>
+      <ol>
+        <li>Backstory — what life/body/confidence actually looked like at the lowest point</li>
+        <li>Turning point — the moment that changed the trajectory</li>
+        <li>Non-fitness identity — what he wants to be known for beyond training</li>
+        <li>Non-negotiable values — 3–4 things he won't compromise on</li>
+        <li>Who this is NOT for — sharpens positioning by exclusion</li>
+        <li>Life outside the niche — a normal Tuesday, hobbies, routines</li>
+        <li>The bigger mission — what the brand does if it succeeds beyond coaching</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section data-reveal>
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">[</span> content.system <span class="tick">]</span></span>
+    <h2 class="title-lg">Pillars, schedule, transition</h2>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Pillar</th><th>Function</th><th>Format bias</th></tr>
+        <tr><td class="pillar-name">Value</td><td>Leverage, authority, competitive edge</td><td>Talking-head reels, hook-driven carousels</td></tr>
+        <tr><td class="pillar-name">Real Moments</td><td>Relatability, everyday trust</td><td>Stories, low-produced reels, voiceover B-roll</td></tr>
+        <tr><td class="pillar-name">Behind the Build</td><td>Lessons, hard-earned advice</td><td>Reflective reels, "what I'd tell myself" format</td></tr>
+        <tr><td class="pillar-name">Aesthetics</td><td>Humanizes him outside the niche</td><td>Carousels, photo dumps, style/fit content</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-h">Weekly schedule</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Day</th><th>Pillar</th><th>Format</th></tr>
+        <tr><td class="pillar-name">Mon</td><td>Value</td><td>Reel — knowledge hook, high-retention opener</td></tr>
+        <tr><td class="pillar-name">Tue</td><td>Aesthetics</td><td>Carousel/photo — physique update, lifestyle shot</td></tr>
+        <tr><td class="pillar-name">Wed</td><td>Behind the Build</td><td>Reel — lesson/mistake, reflective tone</td></tr>
+        <tr><td class="pillar-name">Thu</td><td>Real Moments</td><td>Reel/story series — unscripted day-in-life</td></tr>
+        <tr><td class="pillar-name">Fri</td><td>Value</td><td>Reel — provocative hook, calls out a mistake</td></tr>
+        <tr><td class="pillar-name">Sat</td><td>Aesthetics / Real</td><td>Carousel or photo dump — low-pressure, human</td></tr>
+        <tr><td class="pillar-name">Sun</td><td>—</td><td>Rest day — recap story, engagement only</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-h">Croatian → English transition</div>
+    <div class="phase-track">
+      <div class="phase"><span class="p-label">Phase 1 · Wk 1–2</span><h5>Text-first switch</h5><p>Audio stays Croatian. On-screen hooks, captions, CTAs move to English. 1 fully English reel/week as a test.</p></div>
+      <div class="phase"><span class="p-label">Phase 2 · Wk 3–5</span><h5>Majority English</h5><p>Value & Behind the Build shift to English audio. Bio, highlights, pinned posts fully English by end of phase.</p></div>
+      <div class="phase"><span class="p-label">Phase 3 · Wk 6+</span><h5>Full English</h5><p>All new content English. YouTube launches English from day one, timed ahead of competition.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-reveal>
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">[</span> visual.spec <span class="tick">]</span></span>
+    <h2 class="title-lg">Colors & type</h2>
+    <p class="lede">Bordeaux runs part-time primary — it carries landings, titles, and every moment of distinguishment, then steps back to tertiary duty on pictures and thumbnails. Deep blue is the cold counterweight, kept dark so it never competes with bordeaux.</p>
+    <div class="swatch-row">
+      <div class="swatch"><div class="swatch-color" style="background:var(--black)"></div><div class="swatch-meta"><div class="name">Black</div><div class="hex">#0A0A0B</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--grey)"></div><div class="swatch-meta"><div class="name">Grey</div><div class="hex">#8C8C92</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--white)"></div><div class="swatch-meta"><div class="name">White</div><div class="hex">#F3F1EE</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--bordeaux-light)"></div><div class="swatch-meta"><div class="name">Bordeaux · Light</div><div class="hex">#C23A4C</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--bordeaux)"></div><div class="swatch-meta"><div class="name">Bordeaux · Med</div><div class="hex">#8C1F2F</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--bordeaux-dark)"></div><div class="swatch-meta"><div class="name">Bordeaux · Dark</div><div class="hex">#43101B</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--blue-deep)"></div><div class="swatch-meta"><div class="name">Cold Blue · Deep</div><div class="hex">#10202E</div></div></div>
+    </div>
+
+    <div class="type-specimens">
+      <div class="spec display"><div class="glyph">Aa</div><div class="role">Playfair Display</div><div class="use">Hero lines, emphasis moments — used with restraint</div></div>
+      <div class="spec body"><div class="glyph">Aa</div><div class="role">Inter</div><div class="use">Body copy, UI, structured content</div></div>
+      <div class="spec thin"><div class="glyph">Aa</div><div class="role">Inter Thin</div><div class="use">Captions, meta labels, secondary hierarchy</div></div>
+    </div>
+  </div>
+</section>
+
+<section data-reveal>
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">[</span> social.layer <span class="tick">]</span></span>
+    <h2 class="title-lg">Instagram profile structure</h2>
+    <p class="lede">Position him as the expert operator a serious person can trust — competence over hype.</p>
+    <div class="social-grid">
+      <div class="social-card"><span class="n">bio</span><h5>Concise description</h5><p>One line on who he serves, one on the mechanism, one CTA. No generic "coach | mentor" stacking.</p></div>
+      <div class="social-card"><span class="n">highlights</span><h5>Clean, 3–5 max</h5><p>Results/proof, process/method, personal — in that order of prominence. No highlight bloat.</p></div>
+      <div class="social-card"><span class="n">pinned posts</span><h5>Navigational grid</h5><p>First three answer: who are you, what do you do, how do I start. Self-qualify in under 30 seconds.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-reveal>
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">[</span> funnel.flow <span class="tick">]</span></span>
+    <h2 class="title-lg">Client acquisition path</h2>
+    <div class="funnel">
+      <div class="f-step"><div class="f-num">1</div><div class="f-body"><h5>Content / landing page</h5><p>IG content or landing page sparks interest — lead clicks the CTA.</p></div></div>
+      <div class="f-step"><div class="f-num">2</div><div class="f-body"><h5>Qualification form</h5><p>CTA routes into a short form that qualifies the lead before any call.</p></div></div>
+      <div class="f-step"><div class="f-num">3</div><div class="f-body"><h5>Booking or nurture</h5><p>Qualified leads get a booking link directly, or move into manual nurture toward a booked call.</p><span class="voice-flag">Voice messages on IG — real, personal, focused</span></div></div>
+      <div class="f-step"><div class="f-num">4</div><div class="f-body"><h5>The call</h5><p>Close on the first call where possible, or run the two-call process with a clear decision window.</p>
+        <div class="f-branch"><span class="f-chip primary">Close now — target</span><span class="f-chip">2-call · 24hr decision → clear yes/no</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section data-reveal>
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">[</span> next.ops <span class="tick">]</span></span>
+    <h2 class="title-lg">Open items</h2>
+    <div class="ops-list">
+      <div class="ops-row"><span class="ops-status locked">Locked</span><div><h5>Naming — Natural Code / Natural Crew</h5><p>Unchanged. Same offering, same philosophy, English market or not.</p></div></div>
+      <div class="ops-row"><span class="ops-status draft">Draft</span><div><h5>Pricing — ~$200/month</h5><p>Working figure only, not final. Confirm before it touches any public copy.</p></div></div>
+      <div class="ops-row"><span class="ops-status open">Open</span><div><h5>Lifestyle/business pillars</h5><p>Pending the 7 questions above — needed before pillar copy exists anywhere.</p></div></div>
+      <div class="ops-row"><span class="ops-status open">Open</span><div><h5>Call scripts</h5><p>First call + 24hr second-call decision script — not started.</p></div></div>
+      <div class="ops-row"><span class="ops-status open">Open</span><div><h5>Proof assets</h5><p>Which transformations/testimonials are cleared for the public-facing English site.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>The <span class="accent-word" style="font-size:11px; letter-spacing:.05em;">Natural Code</span> — internal reference · not for distribution</p>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('[data-reveal]');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, {threshold:0.12});
+  els.forEach(el=>obs.observe(el));
+</script>
+
+</body>
+</html>

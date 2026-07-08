@@ -141,7 +141,15 @@
   .pillars-box h4{font-size:16px; margin-bottom:10px; color:var(--white); font-weight:600;}
   .pillars-box ol{margin-left:18px; color:var(--grey-light); font-size:13.5px; line-height:1.8;}
   .pillars-box ol li{margin-bottom:4px;}
-  .pillars-box ol li::marker{color:var(--bordeaux-light); font-weight:600;}
+  .pillars-box.locked{border-style:solid;}
+  .status.locked-tag{color:#7FBF8F; border-color:#2E5C3A;}
+  .pillar-cards{display:grid; grid-template-columns:1fr 1fr; gap:26px 30px; margin-top:20px;}
+  .pillar-card{border-top:1px solid var(--line); padding-top:14px;}
+  .pc-num{font-family:var(--font-body); font-weight:200; font-size:12px; color:var(--bordeaux-light); display:block; margin-bottom:6px;}
+  .pillar-card h5{font-size:14.5px; font-weight:600; color:var(--white); margin-bottom:6px;}
+  .pillar-card p{font-size:13px; color:var(--grey-light); line-height:1.6;}
+  .exclusion-line{margin-top:26px; padding-top:18px; border-top:1px dashed var(--line); font-size:13px; color:var(--grey);}
+  .exclusion-line strong{color:var(--bordeaux-light); font-weight:600;}
 
   /* ---------- CONTENT ---------- */
   table{width:100%; border-collapse:collapse; margin-top:20px;}
@@ -292,19 +300,32 @@
     </div>
     <p class="voice-note">Edge is a tool, not the default setting. It shows up to make someone confront themselves — never to be mean, never bro-shouty, never "gatekept knowledge" arrogance.</p>
 
-    <div class="pillars-box">
-      <span class="status">pending david input</span>
+    <div class="pillars-box locked">
+      <span class="status locked-tag">locked — confirmed by david</span>
       <h4>Lifestyle / business pillars</h4>
-      <p style="color:var(--grey); font-size:13.5px; margin-bottom:14px;">Not mapped yet — placeholder only. Locking this once David answers, in order:</p>
-      <ol>
-        <li>Backstory — what life/body/confidence actually looked like at the lowest point</li>
-        <li>Turning point — the moment that changed the trajectory</li>
-        <li>Non-fitness identity — what he wants to be known for beyond training</li>
-        <li>Non-negotiable values — 3–4 things he won't compromise on</li>
-        <li>Who this is NOT for — sharpens positioning by exclusion</li>
-        <li>Life outside the niche — a normal Tuesday, hobbies, routines</li>
-        <li>The bigger mission — what the brand does if it succeeds beyond coaching</li>
-      </ol>
+      <div class="pillar-cards">
+        <div class="pillar-card">
+          <span class="pc-num">01</span>
+          <h5>Built to Be Undeniable</h5>
+          <p>Started as the smallest, weakest guy in his friend group — tired of feeling invisible. Decided nothing was going to keep him small again. The physique is proof of that decision, not vanity.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pc-num">02</span>
+          <h5>Discipline Changed Him First</h5>
+          <p>The mind shifted before the body did. Confidence, goals, and identity were rebuilt by the same discipline that built the physique — training was just where it started.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pc-num">03</span>
+          <h5>More Than the Gym</h5>
+          <p>Refuses to be a one-note "lift and diet" account. Being strong and healthy is what makes everything else — relationships, purpose, confidence — easier to build. Off-camera: anime, friends, time in nature.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pc-num">04</span>
+          <h5>Earned, Then Given Back</h5>
+          <p>Won't let his name be attached to being under-educated in his own field. And won't stay quiet about what he learned — refuses not to help people who are where he used to be.</p>
+        </div>
+      </div>
+      <div class="exclusion-line"><strong>Not for:</strong> people with no real interests, entrenched bad habits, or no respect for others.</div>
     </div>
   </div>
 </section>
@@ -313,6 +334,7 @@
   <div class="wrap">
     <span class="eyebrow"><span class="tick">[</span> content.system <span class="tick">]</span></span>
     <h2 class="title-lg">Pillars, schedule, transition</h2>
+    <p class="lede">Transformation/Viral content is a reach play — trending sound, wide net, no CTA. The bio, highlights, and pinned posts do the actual filtering once someone clicks through.</p>
 
     <div class="table-wrap">
       <table>
@@ -321,19 +343,20 @@
         <tr><td class="pillar-name">Real Moments</td><td>Relatability, everyday trust</td><td>Stories, low-produced reels, voiceover B-roll</td></tr>
         <tr><td class="pillar-name">Behind the Build</td><td>Lessons, hard-earned advice</td><td>Reflective reels, "what I'd tell myself" format</td></tr>
         <tr><td class="pillar-name">Aesthetics</td><td>Humanizes him outside the niche</td><td>Carousels, photo dumps, style/fit content</td></tr>
+        <tr><td class="pillar-name">Transformation / Viral</td><td>Broad reach — trending sound pulls in a wide audience, profile does the filtering after the click</td><td>Trending-sound reels, transformation montage, no direct CTA</td></tr>
       </table>
     </div>
 
     <div class="sub-h">Weekly schedule</div>
     <div class="table-wrap">
       <table>
-        <tr><th>Day</th><th>Pillar</th><th>Format</th></tr>
-        <tr><td class="pillar-name">Mon</td><td>Value</td><td>Reel — knowledge hook, high-retention opener</td></tr>
-        <tr><td class="pillar-name">Tue</td><td>Aesthetics</td><td>Carousel/photo — physique update, lifestyle shot</td></tr>
-        <tr><td class="pillar-name">Wed</td><td>Behind the Build</td><td>Reel — lesson/mistake, reflective tone</td></tr>
-        <tr><td class="pillar-name">Thu</td><td>Real Moments</td><td>Reel/story series — unscripted day-in-life</td></tr>
-        <tr><td class="pillar-name">Fri</td><td>Value</td><td>Reel — provocative hook, calls out a mistake</td></tr>
-        <tr><td class="pillar-name">Sat</td><td>Aesthetics / Real</td><td>Carousel or photo dump — low-pressure, human</td></tr>
+        <tr><th>Day</th><th>Type</th><th>Format</th></tr>
+        <tr><td class="pillar-name">Mon</td><td>Value</td><td>Reel — knowledge/authority hook</td></tr>
+        <tr><td class="pillar-name">Tue</td><td>Transformation / Viral</td><td>Reel — trending sound, broad-reach play</td></tr>
+        <tr><td class="pillar-name">Wed</td><td>Behind the Build</td><td>Reel — lesson/advice, reflective tone</td></tr>
+        <tr><td class="pillar-name">Thu</td><td>Real Moments</td><td>Reel/story — unscripted day-in-life</td></tr>
+        <tr><td class="pillar-name">Fri</td><td>Transformation / Viral</td><td>Reel — trending sound, broad-reach play</td></tr>
+        <tr><td class="pillar-name">Sat</td><td>Aesthetics</td><td>Carousel/photo — lifestyle, low-pressure</td></tr>
         <tr><td class="pillar-name">Sun</td><td>—</td><td>Rest day — recap story, engagement only</td></tr>
       </table>
     </div>
@@ -405,7 +428,7 @@
     <div class="ops-list">
       <div class="ops-row"><span class="ops-status locked">Locked</span><div><h5>Naming — Natural Code / Natural Crew</h5><p>Unchanged. Same offering, same philosophy, English market or not.</p></div></div>
       <div class="ops-row"><span class="ops-status draft">Draft</span><div><h5>Pricing — ~$200/month</h5><p>Working figure only, not final. Confirm before it touches any public copy.</p></div></div>
-      <div class="ops-row"><span class="ops-status open">Open</span><div><h5>Lifestyle/business pillars</h5><p>Pending the 7 questions above — needed before pillar copy exists anywhere.</p></div></div>
+      <div class="ops-row"><span class="ops-status locked">Locked</span><div><h5>Lifestyle/business pillars</h5><p>Confirmed by David — four pillars defined and live in the positioning section above.</p></div></div>
       <div class="ops-row"><span class="ops-status open">Open</span><div><h5>Call scripts</h5><p>First call + 24hr second-call decision script — not started.</p></div></div>
       <div class="ops-row"><span class="ops-status open">Open</span><div><h5>Proof assets</h5><p>Which transformations/testimonials are cleared for the public-facing English site.</p></div></div>
     </div>

@@ -48,6 +48,11 @@
   }
   .ql-card:hover{background:var(--panel-2);}
   .ql-card:hover .ql-arrow{color:var(--bordeaux-light); transform:translate(2px,-2px);}
+  .ql-card.featured{background:linear-gradient(160deg, var(--bordeaux-dark) 0%, var(--panel) 70%);}
+  .ql-card.featured:hover{background:linear-gradient(160deg, var(--bordeaux-dark) 0%, var(--panel-2) 70%);}
+  .ql-card.featured .ql-n{color:var(--bordeaux-light);}
+  .ql-card.featured h5{color:var(--white); font-weight:700;}
+  .ql-card.featured .ql-arrow{color:var(--bordeaux-light);}
   .ql-n{font-family:var(--font-body); font-weight:200; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--bordeaux-light);}
   .ql-card h5{font-size:14.5px; font-weight:600; color:var(--white);}
   .ql-arrow{
@@ -305,6 +310,11 @@
     <h2 class="title-lg">Working docs</h2>
     <p class="lede">Direct links — no digging through Drive.</p>
     <div class="ql-grid">
+      <a class="ql-card featured" href="https://drive.google.com/drive/folders/1pRgDGr_bpdU-D_DdENHG4Okh5s4jAyMo?usp=drive_link" target="_blank" rel="noopener">
+        <span class="ql-n">folder</span>
+        <h5>Videos Folder</h5>
+        <span class="ql-arrow">↗</span>
+      </a>
       <a class="ql-card" href="https://docs.google.com/document/d/1WYsVcJPzCftpvUayr7fMarx0FFVXcd7PMoZd5fIUcWo/edit?usp=drive_link" target="_blank" rel="noopener">
         <span class="ql-n">doc</span>
         <h5>Lifestyle / Business Pillars</h5>

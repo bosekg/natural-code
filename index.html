@@ -41,6 +41,20 @@
   a{color:inherit;}
   img{max-width:100%;display:block;}
 
+  .ql-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:32px;}
+  .ql-card{
+    background:var(--panel); padding:22px 20px; text-decoration:none; display:flex; flex-direction:column;
+    gap:14px; transition:background .2s ease, border-color .2s ease; position:relative;
+  }
+  .ql-card:hover{background:var(--panel-2);}
+  .ql-card:hover .ql-arrow{color:var(--bordeaux-light); transform:translate(2px,-2px);}
+  .ql-n{font-family:var(--font-body); font-weight:200; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--bordeaux-light);}
+  .ql-card h5{font-size:14.5px; font-weight:600; color:var(--white);}
+  .ql-arrow{
+    position:absolute; top:20px; right:18px; font-size:14px; color:var(--grey);
+    transition:color .2s ease, transform .2s ease;
+  }
+
   .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
   section{padding:96px 0; border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
@@ -246,8 +260,10 @@
   .p-tier{font-size:11px; font-weight:200; letter-spacing:.1em; text-transform:uppercase; color:var(--grey);}
   .price-card.featured .p-tier{color:var(--bordeaux-light);}
   .price-card h3{font-size:19px; font-weight:700; color:var(--white); margin:8px 0 14px;}
-  .p-amount{font-size:34px; font-weight:800; color:var(--white); margin-bottom:20px; letter-spacing:-0.01em;}
+  .p-amount{font-size:34px; font-weight:800; color:var(--white); margin-bottom:6px; letter-spacing:-0.01em;}
   .p-amount span{font-size:13px; font-weight:400; color:var(--grey); margin-left:4px;}
+  .p-split{font-size:12px; color:var(--grey-light); margin-bottom:6px;}
+  .p-eur{font-size:12px; color:var(--blue-mist); font-weight:500; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--line);}
   .price-card ul{list-style:none; display:flex; flex-direction:column; gap:11px;}
   .price-card li{font-size:13px; color:var(--grey-light); line-height:1.5; padding-left:16px; position:relative;}
   .price-card li::before{content:"—"; position:absolute; left:0; color:var(--bordeaux-light);}
@@ -259,7 +275,7 @@
   [data-reveal].in{opacity:1; transform:translateY(0);}
 
   @media (max-width:860px){
-    .icp-grid, .type-specimens, .social-grid, .phase-track, .pricing-grid{grid-template-columns:1fr;}
+    .icp-grid, .type-specimens, .social-grid, .phase-track, .pricing-grid, .ql-grid{grid-template-columns:1fr;}
     .price-card.featured{transform:none;}
     .swatch-row{grid-template-columns:repeat(3,1fr);}
     .voice-bar{grid-template-columns:repeat(2,1fr);}
@@ -282,6 +298,41 @@
     </div>
   </div>
 </div>
+
+<section data-reveal>
+  <div class="wrap">
+    <span class="eyebrow"><span class="tick">[</span> quick.access <span class="tick">]</span></span>
+    <h2 class="title-lg">Working docs</h2>
+    <p class="lede">Direct links — no digging through Drive.</p>
+    <div class="ql-grid">
+      <a class="ql-card" href="https://docs.google.com/document/d/1WYsVcJPzCftpvUayr7fMarx0FFVXcd7PMoZd5fIUcWo/edit?usp=drive_link" target="_blank" rel="noopener">
+        <span class="ql-n">doc</span>
+        <h5>Lifestyle / Business Pillars</h5>
+        <span class="ql-arrow">↗</span>
+      </a>
+      <a class="ql-card" href="https://docs.google.com/document/d/106OUchxz4f8xoewfS4-XwGo-MEHMD_Fq85OkLPAGsig/edit?usp=sharing" target="_blank" rel="noopener">
+        <span class="ql-n">doc</span>
+        <h5>Tasklist Doc</h5>
+        <span class="ql-arrow">↗</span>
+      </a>
+      <a class="ql-card" href="https://natural-code-tasklist.vercel.app/" target="_blank" rel="noopener">
+        <span class="ql-n">app</span>
+        <h5>Tasklist CRM</h5>
+        <span class="ql-arrow">↗</span>
+      </a>
+      <a class="ql-card" href="https://docs.google.com/document/d/10XctZikhLEWWZCBwZXvfOBmtGy9gTAnrwuvxJ0CdMks/edit?usp=drive_link" target="_blank" rel="noopener">
+        <span class="ql-n">doc</span>
+        <h5>Content Ideas</h5>
+        <span class="ql-arrow">↗</span>
+      </a>
+      <a class="ql-card" href="https://docs.google.com/document/d/1w6L5WIbxkE1DFB2SUrBNa-oLDVMtus99qQ5d21tUImo/edit?usp=drive_link" target="_blank" rel="noopener">
+        <span class="ql-n">doc</span>
+        <h5>Video Scripts</h5>
+        <span class="ql-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <section data-reveal>
   <div class="wrap">
@@ -450,13 +501,15 @@
   <div class="wrap">
     <span class="eyebrow"><span class="tick">[</span> offers.ladder <span class="tick">]</span></span>
     <h2 class="title-lg">Natural Crew — pricing tiers</h2>
-    <p class="lede">Three tiers, deliberate gaps. Foundation is thin on purpose — it reads as DIY-with-a-coach-nearby, not real coaching. The bigger jump at the top makes Advanced look like the sane middle choice. <strong style="color:var(--white)">Leading with Advanced</strong> — it's the tier the whole ladder is built to sell.</p>
+    <p class="lede">4-month commitment, no monthly option — 50% charged at signup, 50% at month 2. Foundation is thin on purpose — it reads as DIY-with-a-coach-nearby, not real coaching. The bigger jump at the top makes Advanced look like the sane middle choice. <strong style="color:var(--white)">Leading with Advanced</strong> — it's the tier the whole ladder is built to sell. Priced in USD for the primary market, EUR shown alongside for Western EU buyers.</p>
 
     <div class="pricing-grid">
       <div class="price-card">
         <span class="p-tier">Natural Crew</span>
         <h3>Foundation</h3>
-        <div class="p-amount">99<span>€/mo</span></div>
+        <div class="p-amount">$427<span>total · 4mo</span></div>
+        <div class="p-split">$213.50 now + $213.50 at month 2</div>
+        <div class="p-eur">≈ €375 total</div>
         <ul>
           <li>Training plan</li>
           <li>Nutrition — suggestions only, not a structured plan</li>
@@ -468,7 +521,9 @@
         <span class="p-badge">Most chosen · lead offer</span>
         <span class="p-tier">Natural Crew</span>
         <h3>Advanced</h3>
-        <div class="p-amount">147<span>€/mo</span></div>
+        <div class="p-amount">$647<span>total · 4mo</span></div>
+        <div class="p-split">$323.50 now + $323.50 at month 2</div>
+        <div class="p-eur">≈ €567 total</div>
         <ul>
           <li>Training plan</li>
           <li>Full nutritional plan</li>
@@ -479,7 +534,9 @@
       <div class="price-card">
         <span class="p-tier">Natural Crew</span>
         <h3>Elite</h3>
-        <div class="p-amount">247<span>€/mo</span></div>
+        <div class="p-amount">$997<span>total · 4mo</span></div>
+        <div class="p-split">$498.50 now + $498.50 at month 2</div>
+        <div class="p-eur">≈ €875 total</div>
         <ul>
           <li>Training plan</li>
           <li>Full nutritional plan</li>
@@ -489,6 +546,7 @@
       </div>
     </div>
     <p class="voice-note" style="margin-top:24px;">Elite's access line is intentionally bounded — "24/7, multiple calls" was the original phrasing but that's an operational risk for a solo coach. This version keeps the premium feel without the burnout/broken-promise trap.</p>
+    <p class="voice-note" style="margin-top:10px;">EU/UK buyers get a mandatory 14-day cooling-off disclosure (EU Directive 2011/83/EU + UK Consumer Contracts Regulations 2013) — applies to the first charge regardless of the 4-month term. US buyers fall outside both regimes. EUR figures above are approximate at current exchange rate, not the contractual charge amount.</p>
   </div>
 </section>
 
@@ -513,7 +571,7 @@
     <h2 class="title-lg">Open items</h2>
     <div class="ops-list">
       <div class="ops-row"><span class="ops-status locked">Locked</span><div><h5>Naming — Natural Code / Natural Crew</h5><p>Unchanged. Same offering, same philosophy, English market or not.</p></div></div>
-      <div class="ops-row"><span class="ops-status locked">Locked</span><div><h5>Pricing — Natural Crew 3-tier ladder</h5><p>Foundation 99€ / Advanced 147€ / Elite 247€. Advanced leads as the primary offer.</p></div></div>
+      <div class="ops-row"><span class="ops-status locked">Locked</span><div><h5>Pricing — Natural Crew, 4-month term</h5><p>Foundation $427 / Advanced $647 / Elite $997, 50% at signup + 50% at month 2. Advanced leads as the primary offer.</p></div></div>
       <div class="ops-row"><span class="ops-status locked">Locked</span><div><h5>Lifestyle/business pillars</h5><p>Confirmed by David — four pillars defined and live in the positioning section above.</p></div></div>
       <div class="ops-row"><span class="ops-status open">Open</span><div><h5>Call scripts</h5><p>First call + 24hr second-call decision script — not started.</p></div></div>
       <div class="ops-row"><span class="ops-status open">Open</span><div><h5>Proof assets</h5><p>Which transformations/testimonials are cleared for the public-facing English site.</p></div></div>
